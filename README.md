@@ -1,4 +1,4 @@
-# CSE 455 Final Project - Machine Learning Models for Syringe Identification
+<!-- # CSE 455 Final Project - Machine Learning Models for Syringe Identification -->
 ## Lauren He and Noah Krohngold
 
 The main goals for this project were:
