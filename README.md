@@ -24,11 +24,16 @@ For tuning our model, we planned to use orthogonalization which is a process of 
 
 ### Datasets
 We have a set of full-size images and tiled images. The clips are grouped based on lighting conditions: well lit, dim, dark, and very dark.
+<style>
+.tablelines table, .tablelines td, .tablelines th {
+        border: 1px solid black;
+        }
+</style>
 | 1 (very dark) | 2 (dark)   | 3 (dim)    | 4 (well lit) |
-
 | ------------- | ---------  | ---------- | ------------ |
 | train: 306    | train: 802 | train: 323 | train: 1075  |
 | valid: 90     | valid: 78  | valid: -   | valid: 593   |
 | test: 209     | test: 542  | test: -    | test: 402    |
+{: .tablelines}
 
 For full-size images, the set based on light conditions includes 2506 training images, 761 validation images, and 1153 test images. This set has a total of 4420 images. We usually put 70% of the clips in train, 20% in valid and 10% in test. For this project, we used an 80-10-10 split. The matlab program that was used to match each frame of annotation with the images decides the folder (train/valid/test) that each clip gets put into randomly at runtime. But since lighting level 3 was such a small dataset, it didn't generate a valid and test folder. Train and test sets from each light level were combined to form the final train set (3659 images) while the validation set was set aside for validation (761 images). 
