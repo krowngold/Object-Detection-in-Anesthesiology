@@ -25,6 +25,7 @@ For tuning our model, we planned to use orthogonalization which is a process of 
 ### Datasets
 We have a set of full-size images and tiled images. The clips are grouped based on lighting conditions: well lit, dim, dark, and very dark.
 | 1 (very dark) | 2 (dark)   | 3 (dim)    | 4 (well lit) |
+
 | ------------- | ---------  | ---------- | ------------ |
 | train: 306    | train: 802 | train: 323 | train: 1075  |
 | valid: 90     | valid: 78  | valid: -   | valid: 593   |
