@@ -30,7 +30,7 @@ We have a set of full-size images and tiled images. The clips are grouped based 
         }
 </style>
 | 1 (very dark) | 2 (dark)   | 3 (dim)    | 4 (well lit) |
-| ------------- | ---------  | ---------- | ------------ |
+<!-- | ------------- | ---------  | ---------- | ------------ | -->
 | train: 306    | train: 802 | train: 323 | train: 1075  |
 | valid: 90     | valid: 78  | valid: -   | valid: 593   |
 | test: 209     | test: 542  | test: -    | test: 402    |
