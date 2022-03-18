@@ -30,10 +30,55 @@ We have a set of full-size images and tiled images. The clips are grouped based 
         }
 </style>
 | 1 (very dark) | 2 (dark)   | 3 (dim)    | 4 (well lit) |
-<!-- | ------------- | ---------  | ---------- | ------------ | -->
+| ------------- | ---------  | ---------- | ------------ |
 | train: 306    | train: 802 | train: 323 | train: 1075  |
 | valid: 90     | valid: 78  | valid: -   | valid: 593   |
 | test: 209     | test: 542  | test: -    | test: 402    |
 {: .tablelines}
 
+
 For full-size images, the set based on light conditions includes 2506 training images, 761 validation images, and 1153 test images. This set has a total of 4420 images. We usually put 70% of the clips in train, 20% in valid and 10% in test. For this project, we used an 80-10-10 split. The matlab program that was used to match each frame of annotation with the images decides the folder (train/valid/test) that each clip gets put into randomly at runtime. But since lighting level 3 was such a small dataset, it didn't generate a valid and test folder. Train and test sets from each light level were combined to form the final train set (3659 images) while the validation set was set aside for validation (761 images). 
+
+
+### Results
+
+
+### Discussion
+- What problems were encountered?
+- Are there next steps you would take if you kept working on the project?
+We currently have around 70 annotated clips that each have about 1000 frames with 300-400 annotated images. For the final project, we used a subset of those images. 
+
+Because of time and resource constraints, we were not able to perform the number of experiments needed for rapid iteration. In order to do quick prototyping, we would use a smaller dataset.
+
+Random cropping or horizontal flipping - move bounding boxes with image (do this in data loader)
+Random perturbations: exposure, color, saturation
+Data augmentation is baked into the YOLOv5 package.
+```
+hsv_h: 0.015  # image HSV-Hue augmentation (fraction)
+hsv_s: 0.7  # image HSV-Saturation augmentation (fraction)
+hsv_v: 0.4  # image HSV-Value augmentation (fraction)
+degrees: 0.0  # image rotation (+/- deg)
+translate: 0.1  # image translation (+/- fraction)
+scale: 0.5  # image scale (+/- gain)
+shear: 0.0  # image shear (+/- deg)
+perspective: 0.0  # image perspective (+/- fraction), range 0-0.001
+flipud: 0.0  # image flip up-down (probability)
+fliplr: 0.5  # image flip left-right (probability)
+mosaic: 1.0  # image mosaic (probability)
+mixup: 0.0  # image mixup (probability)
+```
+
+In future iterations, we should include no label during the event (true negative examples) in our dataset so that the model can learn what is not an object of interest.
+
+Smaller model (if the model seems to be overfitting), ensembling
+
+Change threshold to be greater than 0.5
+
+Automate annotations using final detector
+
+One stretch goal we were not able to attend to was exploring optical character recognition to identify drug labels as the ultimate goal of the work is to figure out what drug is in the syringe.
+
+We investigated if it would be possible to leverage frame by frame information to automatically place bounding boxes using semi-supervised learning. 
+
+- How does your approach differ from others? Was that beneficial?
+The differences in the approach we used compared to the prior project are outlined above. It [hopefully] was as we [hopefully] achieved a higher accuracy measure of [filler] mAP@.5 and [filler] mAP@.5:.95.
