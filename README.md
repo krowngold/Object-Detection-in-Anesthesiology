@@ -21,19 +21,19 @@ For tuning our model, we planned to use orthogonalization which is a process of 
 
 ### Datasets
 We currently have a collection of around 70 annotated clips that each have about 1000 frames with 300-400 images. For this project, we pulled a subset of those clips. From those clips, we used a full-size set of frames and a tiled set. The clips are grouped based on lighting conditions: well lit, dim, dark, and very dark. 
-<!-- <style>
+<style>
 .tablelines table, .tablelines td, .tablelines th {
         border: 1px solid black;
         }
-</style> -->
+</style>
 | 1 (very dark) | 2 (dark)   | 3 (dim)    | 4 (well lit) |
 | ------------- | ---------  | ---------- | ------------ |
 | train: 306    | train: 802 | train: 323 | train: 1075  |
 | valid: 90     | valid: 78  | valid: -   | valid: 593   |
 | test: 209     | test: 542  | test: -    | test: 402    |
-<!-- {: .tablelines} -->
+{: .tablelines}
 
-<!-- TODO: Insert figure 1 -->
+![Annotated data](/example images.png)
 Figure 1: Top left: Syringe, Top right: DrugDrawUp, Bottom left: Vial, Bottom right: DrugDrawUp
 
 The full-size set has a total of 4420 images with 2506 in train, 761 in val, and 1153 in test. The MATLAB program that was used to match each frame of annotation with the images decides the folder (train/valid/test) that each clip gets put into randomly at runtime. But since lighting level 3 was such a small dataset, it didn't generate a valid and test folder. We usually put 70% of the clips in train, 20% in val, and 10% in test. For this project, we used an 80-10-10 split. Our initial run incorrectly split on images. In the following run, we split on clips and combined train and test sets from each light level to form the final training set (3659 images) while the validation set was set aside for validation (761 images). 
@@ -49,7 +49,7 @@ With our best model, we ran inference on two clips the model has not seen before
 
 The final model was trained on data split by clips and was trained for 599 epochs. We originally planned to train for 1000 epochs. We did not train further due to time limitations and the model seemed to be oscillating around a local minimum. The best model had an mAP@.5 of 0.787 and an mAP@.5:.95 of 0.569. Similar to the first model, this model converged rapidly and plateaued. As expected, it doesn’t reach as high of an accuracy reflecting the correction in the split. In both cases, recall lags behind precision.
 
-<!-- TODO: Insert figure 3 -->
+![Result plots for run split on clips](/figure3data.png)
 Figure 3: Result plots for the run split on clips
 
 ### Discussion
