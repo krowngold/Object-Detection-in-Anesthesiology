@@ -32,7 +32,7 @@ We currently have a collection of around 70 annotated clips that each have about
 | valid: 90     | valid: 78  | valid: -   | valid: 593   |
 | test: 209     | test: 542  | test: -    | test: 402    |  
 {: .tablelines}  
-
+<br/>
 ![Annotated data](/example_images.png)  
 Figure 1: Top left: Syringe, Top right: DrugDrawUp, Bottom left: Vial, Bottom right: DrugDrawUp
 
