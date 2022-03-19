@@ -34,7 +34,7 @@ We currently have a collection of around 70 annotated clips that each have about
 {: .tablelines}  
 <br/>
 
-![Annotated data](/example_images.png)  
+![Annotated images](/example_images.png)  
 Figure 1: Top left: Syringe, Top right: DrugDrawUp, Bottom left: Vial, Bottom right: DrugDrawUp
 <figcaption align = "center"><b>Fig.1 - Top left: Syringe, Top right: DrugDrawUp, Bottom left: Vial, Bottom right: DrugDrawUp</b></figcaption>
 
