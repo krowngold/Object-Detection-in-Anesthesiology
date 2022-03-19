@@ -35,7 +35,7 @@ We currently have a collection of around 70 annotated clips that each have about
 <br/>
 
 <p align="center">
-  <img src="/example_images.png" alt="Annotated images"/>  
+  <img src="/example_images.png" alt="Annotated images"/><br/>  
   <b>Fig.1 - Top left: Syringe, Top right: DrugDrawUp, Bottom left: Vial, Bottom right: DrugDrawUp</b>
 </p>    
 <br/>
@@ -46,7 +46,7 @@ The full-size set has a total of 4420 images with 2506 in train, 761 in val, and
 The results from our initial model were invalid because our data was split on images so frames from the same clips were spread across train, val, and test. The model converged very quickly and reached an mAP@.5 of more than 90% near epoch 20. And from there, the mAP continued to climb. The best model had an mAP@.5 of 0.98033 and an mAP@.5:.95 of 0.798.
 
 <p align="center">
-  <img src="/losses_and_metrics.png" alt="Train/Val losses and metrics"/>  
+  <img src="/losses_and_metrics.png" alt="Train/Val losses and metrics"/><br/>  
   <b>Fig.2 - Result plots for the first run split on images</b>
 </p>  
 <br/>
@@ -56,7 +56,7 @@ With our best model, we ran inference on two clips the model has not seen before
 The final model was trained on data split by clips and was trained for 599 epochs. We originally planned to train for 1000 epochs. We did not train further due to time limitations and the model seemed to be oscillating around a local minimum. The best model had an mAP@.5 of 0.787 and an mAP@.5:.95 of 0.569. Similar to the first model, this model converged rapidly and plateaued. As expected, it doesn’t reach as high of an accuracy reflecting the correction in the split. In both cases, recall lags behind precision.
 
 <p align="center">
-  <img src="/figure3data.png" alt="Result plots for run split on clips"/>  
+  <img src="/figure3data.png" alt="Result plots for run split on clips"/><br/>  
   <b>Fig.3 - Result plots for the run split on clips</b>
 </p>  
 
