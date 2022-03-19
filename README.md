@@ -84,4 +84,5 @@ We investigated if it would be possible to leverage frame by frame information t
 
 - How does your approach differ from others? Was that beneficial?
 
-The differences in the approach we used compared to the prior project are outlined above. It [hopefully] was as we [hopefully] achieved a higher accuracy measure of [filler] mAP@.5 and [filler] mAP@.5:.95.
+The differences in the approach we used compared to the prior project are outlined above. We ran fewer experiments given we were time and resource-constrained using full-size images and a larger dataset. We were not able to achieve a higher accuracy measure than the current best model.
+
