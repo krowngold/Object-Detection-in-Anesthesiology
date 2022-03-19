@@ -21,17 +21,17 @@ For tuning our model, we planned to use orthogonalization which is a process of 
 
 ### Datasets
 We currently have a collection of around 70 annotated clips that each have about 1000 frames with 300-400 images. For this project, we pulled a subset of those clips. From those clips, we used a full-size set of frames and a tiled set. The clips are grouped based on lighting conditions: well lit, dim, dark, and very dark. 
-<style>
+<!-- <style>
 .tablelines table, .tablelines td, .tablelines th {
         border: 1px solid black;
         }
-</style>
+</style> -->
 | 1 (very dark) | 2 (dark)   | 3 (dim)    | 4 (well lit) |
 | ------------- | ---------  | ---------- | ------------ |
 | train: 306    | train: 802 | train: 323 | train: 1075  |
 | valid: 90     | valid: 78  | valid: -   | valid: 593   |
 | test: 209     | test: 542  | test: -    | test: 402    |
-{: .tablelines}
+<!-- {: .tablelines} -->
 
 <!-- TODO: Insert figure 1 -->
 Figure 1: Top left: Syringe, Top right: DrugDrawUp, Bottom left: Vial, Bottom right: DrugDrawUp
