@@ -35,7 +35,7 @@ We currently have a collection of around 70 annotated clips that each have about
 <br/>
 
 <p align="center">
-  <img src="/example_images.png" alt="Annotated images"/><br/>  
+  <img src="https://github.com/krowngold/Object-Detection-in-Anesthesiology/blob/main/example_images.png?raw=true" alt="Annotated images"/><br/>  
   <b>Fig.1 - Top left: Syringe, Top right: DrugDrawUp, Bottom left: Vial, Bottom right: DrugDrawUp</b>
 </p>    
 <br/>
