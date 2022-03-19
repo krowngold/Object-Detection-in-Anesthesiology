@@ -33,8 +33,7 @@ We currently have a collection of around 70 annotated clips that each have about
 | test: 209     | test: 542  | test: -    | test: 402    |  
 {: .tablelines}  
 
-![Annotated data](/example images.png)  
-
+![Annotated data](/example_images.png)  
 Figure 1: Top left: Syringe, Top right: DrugDrawUp, Bottom left: Vial, Bottom right: DrugDrawUp
 
 The full-size set has a total of 4420 images with 2506 in train, 761 in val, and 1153 in test. The MATLAB program that was used to match each frame of annotation with the images decides the folder (train/valid/test) that each clip gets put into randomly at runtime. But since lighting level 3 was such a small dataset, it didn't generate a valid and test folder. We usually put 70% of the clips in train, 20% in val, and 10% in test. For this project, we used an 80-10-10 split. Our initial run incorrectly split on images. In the following run, we split on clips and combined train and test sets from each light level to form the final training set (3659 images) while the validation set was set aside for validation (761 images). 
