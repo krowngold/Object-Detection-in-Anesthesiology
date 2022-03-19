@@ -43,9 +43,24 @@ For full-size images, the set based on light conditions includes 2506 training i
 
 ### Results
 
+![Train/Val losses and metrics](/losses_and_metrics.png)
+
 
 ### Discussion
 - What problems were encountered?
+
+We encountered several problems. Our initial approach was to tune a select number of hyperparameters one and a time. We were interested in using a feature of YOLOv5 called hyperparameter evolution which is a method of hyperparameter optimization that uses a genetic algorithm to find the optimal values of hyperparameters. After some investigation, we decided not to move forward with the plan to use hyperparameter evolution deeming it too expensive and time consuming. It was not the lifeline we thought it would be. It is recommended to run the base scenario 300 times. We would have had to run tens of thousands if not hundreds of thousands of epochs.  
+
+We originally planned to develop capabilities for real time syringe identification during low-lit conditions by performing image preprocessing to increase brightness in low light images prior to identifying syringes. However, we learned that it will likely not work as we intend because of batch normalization which is a critical component of neural nets. Batch norm transforms activations over a mini-batch by taking the mean of the mini-batch and subtracting the mean from each unit and dividing by the standard deviation. This step would actually increase the brightness of images without us having to perform it beforehand. In a way, it would be undoing our preprocessing. 
+
+To our human eyes, the dim image and the same image with increased brightness look significantly different but we are not increasing the amount of information available to the computer. In fact, preprocessing the image might introduce degradation like the glare from a light spot on a dim image we were testing that got too bright after processing. We did, however, include low light images when training as the network should learn on its own how to deal with such images. 
+
+Uploading and shuttling around images and files and folders headaches 
+Rar files, unpacking, checksum errors, re-downloading
+
+Batch size limitation - impossibly long training time
+Memory bottleneck - need to decrease batch size
+
 - Are there next steps you would take if you kept working on the project?
 
 We currently have around 70 annotated clips that each have about 1000 frames with 300-400 annotated images. For the final project, we used a subset of those images. 
