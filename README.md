@@ -30,10 +30,11 @@ We currently have a collection of around 70 annotated clips that each have about
 | ------------- | ---------  | ---------- | ------------ |
 | train: 306    | train: 802 | train: 323 | train: 1075  |
 | valid: 90     | valid: 78  | valid: -   | valid: 593   |
-| test: 209     | test: 542  | test: -    | test: 402    |
-{: .tablelines}
+| test: 209     | test: 542  | test: -    | test: 402    |  
+{: .tablelines}  
 
-![Annotated data](/example images.png)
+![Annotated data](/example images.png)  
+
 Figure 1: Top left: Syringe, Top right: DrugDrawUp, Bottom left: Vial, Bottom right: DrugDrawUp
 
 The full-size set has a total of 4420 images with 2506 in train, 761 in val, and 1153 in test. The MATLAB program that was used to match each frame of annotation with the images decides the folder (train/valid/test) that each clip gets put into randomly at runtime. But since lighting level 3 was such a small dataset, it didn't generate a valid and test folder. We usually put 70% of the clips in train, 20% in val, and 10% in test. For this project, we used an 80-10-10 split. Our initial run incorrectly split on images. In the following run, we split on clips and combined train and test sets from each light level to form the final training set (3659 images) while the validation set was set aside for validation (761 images). 
@@ -42,14 +43,16 @@ The full-size set has a total of 4420 images with 2506 in train, 761 in val, and
 
 The results from our initial model were invalid because our data was split on images so frames from the same clips were spread across train, val, and test. The model converged very quickly and reached an mAP@.5 of more than 90% near epoch 20. And from there, the mAP continued to climb. The best model had an mAP@.5 of 0.98033 and an mAP@.5:.95 of 0.798.
 
-![Train/Val losses and metrics](/losses_and_metrics.png)
+![Train/Val losses and metrics](/losses_and_metrics.png)  
+
 Figure 2: Result plots for the first run split on images
 
 With our best model, we ran inference on two clips the model has not seen before (one well lit and one low lit) to demonstrate model functionality. The model performed rather well on the well lit clip and performed noticeably worse on the low lit clip. For the well lit clip, it was able to predict high confidence boxes of the right classes rather consistently. We thresholded objectness confidence at 40%. When the detector did predict boxes in the low lit clip, it predicted them with high confidence but at a lower rate. There were likely predictions that did not meet the threshold and therefore was not shown in the output making it appear that the detector is not predicting often enough. We do see that fewer boxes appear in the low lit inference clip than the well lit inference clip even though the objects of interest are within the frame. We think that this model performed relatively well because the clips inherently have low variance in that they were captured in specific environments at the university and the identification task itself is narrow. 
 
 The final model was trained on data split by clips and was trained for 599 epochs. We originally planned to train for 1000 epochs. We did not train further due to time limitations and the model seemed to be oscillating around a local minimum. The best model had an mAP@.5 of 0.787 and an mAP@.5:.95 of 0.569. Similar to the first model, this model converged rapidly and plateaued. As expected, it doesn’t reach as high of an accuracy reflecting the correction in the split. In both cases, recall lags behind precision.
 
-![Result plots for run split on clips](/figure3data.png)
+![Result plots for run split on clips](/figure3data.png)  
+
 Figure 3: Result plots for the run split on clips
 
 ### Discussion
